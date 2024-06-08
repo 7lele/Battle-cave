@@ -4,7 +4,7 @@
 
 ## Description
 
-Battle-cave est un jeu immersif où les joueurs doivent survivre dans une grotte dangereuse remplie de défis et d'ennemis. Utilisez vos compétences et stratégies pour rester en vie le plus longtemps possible. Chaque partie est unique grâce à des éléments de génération aléatoire et des ennemis imprévisibles.
+Battle-cave est un jeu immersif où les joueurs doivent survivre dans une grotte dangereuse remplie d'ennemis. Utilisez vos compétences et stratégies pour rester en vie le plus longtemps possible. Chaque partie est unique grâce à des éléments de génération aléatoire et des ennemis imprévisibles.
 
 ## Fonctionnalités
 
