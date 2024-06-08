@@ -9,7 +9,6 @@ Battle-cave est un jeu immersif où les joueurs doivent survivre dans une grotte
 ## Fonctionnalités
 
 - **Survie intense** : Affrontez des vagues d'ennemis dans un environnement hostile.
-- **Génération aléatoire** : Chaque partie offre une nouvelle expérience avec des niveaux et des ennemis différents.
 - **Compétences et améliorations** : Débloquez et améliorez des compétences pour augmenter vos chances de survie.
 - **Graphismes immersifs** : Profitez de graphismes détaillés qui vous plongent dans l'ambiance sombre et mystérieuse de la grotte.
 
