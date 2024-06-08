@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0oi0kixq70nt"]
+
+[ext_resource type="Script" path="res://Life.gd" id="1_245br"]
+[ext_resource type="Texture2D" uid="uid://dfb8we4tnxjkf" path="res://potion.png" id="2_jhs26"]
+[ext_resource type="Texture2D" uid="uid://c33bqnuq23ov1" path="res://Godot light texture.webp" id="3_r8n2c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aa10k"]
+radius = 13.0
+height = 26.0
+
+[node name="Area2D" type="CharacterBody2D"]
+modulate = Color(1.03, 1.03, 1.03, 1)
+self_modulate = Color(1.03, 1.03, 1.03, 1)
+collision_layer = 0
+collision_mask = 0
+platform_floor_layers = 4294901760
+script = ExtResource("1_245br")
+
+[node name="Gem" type="Sprite2D" parent="."]
+modulate = Color(1.09, 1.09, 1.09, 1)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_jhs26")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_aa10k")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.266667, 0.65098, 0.376471, 1)
+energy = 0.5
+range_layer_min = -40
+range_layer_max = 5
+texture = ExtResource("3_r8n2c")

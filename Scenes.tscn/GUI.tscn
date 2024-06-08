@@ -1,0 +1,214 @@
+[gd_scene load_steps=20 format=3 uid="uid://b5o73ual3mum6"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_s8s2n"]
+[ext_resource type="FontFile" uid="uid://2nopynevwt7c" path="res://Press Start /PressStart2P-Regular.ttf" id="2_267rh"]
+[ext_resource type="Texture2D" uid="uid://bv1j1cav13i4j" path="res://over.png" id="2_furch"]
+[ext_resource type="Texture2D" uid="uid://e33l6n3ty0nv" path="res://after.png" id="3_0rpay"]
+[ext_resource type="Texture2D" uid="uid://d0ldqkbe104g3" path="res://after2.png" id="3_m5g8u"]
+[ext_resource type="Texture2D" uid="uid://bxxy5t5t468td" path="res://case.png" id="5_lxnid"]
+[ext_resource type="Texture2D" uid="uid://bk34qf1ylh7c8" path="res://speed.png" id="6_23fcr"]
+[ext_resource type="Texture2D" uid="uid://7q4fne72mkp5" path="res://casei.png" id="7_ukuul"]
+[ext_resource type="Texture2D" uid="uid://csmwsqcejynoi" path="res://sword.png" id="8_u1jem"]
+[ext_resource type="Texture2D" uid="uid://d07a2n2y8plql" path="res://Inventaire.png" id="9_hrd1f"]
+[ext_resource type="Texture2D" uid="uid://bvgjy3w4fcfi0" path="res://bombe.png" id="10_corey"]
+[ext_resource type="Texture2D" uid="uid://ih15unyai8yg" path="res://glueslime.png" id="11_hvs4e"]
+[ext_resource type="Texture2D" uid="uid://dah6qnc0ea8fy" path="res://plume.png" id="12_djvfy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmrwe"]
+bg_color = Color(0, 0, 0.0196078, 0.635294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fp8k"]
+bg_color = Color(0.823529, 0.443137, 0.74902, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3g4nx"]
+line_spacing = 3.74
+font = ExtResource("2_267rh")
+font_size = 19
+
+[sub_resource type="LabelSettings" id="LabelSettings_neu0n"]
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_qt06h"]
+font = ExtResource("2_267rh")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rkp3m"]
+font = ExtResource("2_267rh")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_s8s2n")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 204.0
+offset_bottom = 30.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tmrwe")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2fp8k")
+max_value = 1.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "lvl 2"
+label_settings = SubResource("LabelSettings_3g4nx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar2" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 34.0
+offset_right = 203.0
+offset_bottom = 56.0
+max_value = 20.0
+step = 0.01
+value = 1.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_furch")
+texture_progress = ExtResource("3_m5g8u")
+
+[node name="ProgressBar3" type="TextureProgressBar" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 3.0
+offset_top = 60.0
+offset_right = 203.0
+offset_bottom = 82.0
+max_value = 20.0
+value = 1.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_furch")
+texture_progress = ExtResource("3_0rpay")
+
+[node name="Label" type="Label" parent="ProgressBar3"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_top = -1.0
+offset_right = 201.0
+offset_bottom = 22.0
+text = "73 / 100"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 915.0
+offset_top = 3.0
+offset_right = 955.0
+offset_bottom = 30.0
+text = "26"
+label_settings = SubResource("LabelSettings_neu0n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="speed" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 506.0
+offset_right = 98.0
+offset_bottom = 538.0
+texture = ExtResource("5_lxnid")
+metadata/_edit_group_ = true
+
+[node name="Speed" type="TextureRect" parent="speed"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 24.0
+offset_bottom = 8.0
+grow_vertical = 2
+texture = ExtResource("6_23fcr")
+
+[node name="speedtxt" type="Label" parent="speed"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 45.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 26.0
+text = "70"
+label_settings = SubResource("LabelSettings_qt06h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="speed2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 473.0
+offset_right = 98.0
+offset_bottom = 505.0
+texture = ExtResource("7_ukuul")
+metadata/_edit_group_ = true
+
+[node name="Speed" type="TextureRect" parent="speed2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -8.0
+offset_right = 24.0
+offset_bottom = 8.0
+grow_vertical = 2
+texture = ExtResource("8_u1jem")
+
+[node name="speedtexte" type="Label" parent="speed2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 45.0
+offset_top = 6.0
+offset_right = 90.0
+offset_bottom = 26.0
+text = "70"
+label_settings = SubResource("LabelSettings_rkp3m")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 473.0
+offset_right = 164.0
+offset_bottom = 538.0
+texture = ExtResource("9_hrd1f")
+
+[node name="Bombe" type="Sprite2D" parent="TextureRect"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(32.5, 34.5)
+scale = Vector2(1.78125, 1.78125)
+texture = ExtResource("10_corey")
+
+[node name="plume" type="Sprite2D" parent="TextureRect"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(32.5, 34.5)
+scale = Vector2(1.78125, 1.78125)
+texture = ExtResource("12_djvfy")
+
+[node name="Glue" type="Sprite2D" parent="TextureRect"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(2, 2, 1, 1)
+position = Vector2(33, 32.5)
+scale = Vector2(4, 4.0625)
+texture = ExtResource("11_hvs4e")

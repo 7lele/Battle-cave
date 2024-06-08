@@ -1,0 +1,18 @@
+[gd_resource type="Environment" format=3 uid="uid://dearahrulu1py"]
+
+[resource]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 8.95
+glow_levels/2 = 8.92
+glow_levels/3 = 4.2
+glow_levels/4 = 0.18
+glow_levels/5 = 1.17
+glow_levels/6 = 5.31
+glow_levels/7 = 10.5
+glow_normalized = true
+glow_intensity = 3.02
+glow_strength = 0.75
+glow_bloom = 0.01
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0

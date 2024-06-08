@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1o1wkbsakbt"]
+
+[ext_resource type="Script" path="res://gem.gd" id="1_lc7sb"]
+[ext_resource type="Texture2D" uid="uid://cherw3iiqvhml" path="res://gem.png" id="2_bbfnf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ba74x"]
+radius = 3.0
+
+[node name="Area2D" type="CharacterBody2D"]
+modulate = Color(1.03, 1.03, 1.03, 1)
+self_modulate = Color(1.03, 1.03, 1.03, 1)
+collision_layer = 0
+collision_mask = 0
+platform_floor_layers = 4294901760
+script = ExtResource("1_lc7sb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ba74x")
+
+[node name="Gem" type="Sprite2D" parent="."]
+modulate = Color(1.3, 1.3, 1.3, 1)
+self_modulate = Color(2, 2, 2, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_bbfnf")

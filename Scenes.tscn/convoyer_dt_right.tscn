@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0mhdihpi2ndm"]
+
+[ext_resource type="Texture2D" uid="uid://by057apxllt2u" path="res://Convoyer-Down.png" id="1_jsed5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5fdr"]
+atlas = ExtResource("1_jsed5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdyyh"]
+atlas = ExtResource("1_jsed5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuckk"]
+atlas = ExtResource("1_jsed5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3ap2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5fdr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdyyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuckk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs53r"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_xm8oj"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_jt6t7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygqqg"]
+_data = {
+"RESET": SubResource("Animation_jt6t7"),
+"run": SubResource("Animation_xm8oj")
+}
+
+[node name="convoyer-DTRight" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3ap2v")
+
+[node name="UP" type="Area2D" parent="." groups=["UP"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UP"]
+shape = SubResource("RectangleShape2D_cs53r")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ygqqg")
+}
