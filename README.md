@@ -17,5 +17,5 @@ Battle-cave est un jeu immersif où les joueurs doivent survivre dans une grotte
 
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/7lele/battle-cave.git
+   git clone https://github.com/7lele/Battle-cave.git
 
