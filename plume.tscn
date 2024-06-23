@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8bbk6s3qpthg"]
+
+[ext_resource type="Script" path="res://plume.gd" id="1_m7di5"]
+[ext_resource type="Texture2D" uid="uid://dah6qnc0ea8fy" path="res://plume.png" id="2_15f8j"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u4llf"]
+a = Vector2(8, -7)
+b = Vector2(-10, 13)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gfkd8"]
+polygon = PackedVector2Array(-11, 12, -11, 10, -10, 10, -10, 9, -9, 9, -9, 6, -8, 6, -8, 1, -7, 1, -7, -2, -6, -2, -6, -3, -5, -3, -5, -5, -4, -5, -4, -6, -3, -6, -3, -7, -1, -7, -1, -8, 0, -8, 0, -9, 2, -9, 2, -10, 4, -10, 4, -11, 8, -11, 8, -10, 9, -10, 9, -9, 10, -9, 10, -4, 9, -4, 9, -2, 8, -2, 8, 0, 7, 0, 7, 2, 6, 2, 6, 3, 4, 3, 4, 4, 2, 4, 2, 5, 1, 5, 1, 6, -1, 6, -1, 7, -2, 7, -2, 8, -4, 8, -4, 9, -5, 9, -6, 9, -6, 10, -7, 10, -8, 10, -8, 11, -9, 11, -9, 12, -10, 12)
+
+[node name="plume" type="CharacterBody2D"]
+platform_floor_layers = 4294901760
+script = ExtResource("1_m7di5")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_15f8j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("SegmentShape2D_u4llf")
+
+[node name="Slow" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource("OccluderPolygon2D_gfkd8")
+
+[connection signal="timeout" from="Slow" to="." method="_on_slow_timeout"]
