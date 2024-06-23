@@ -1,0 +1,648 @@
+[gd_scene load_steps=54 format=3 uid="uid://bchfduj0g16is"]
+
+[ext_resource type="Script" path="res://Map.gd" id="1_agb8m"]
+[ext_resource type="Texture2D" uid="uid://c33bqnuq23ov1" path="res://Godot light texture.webp" id="2_52ig4"]
+[ext_resource type="PackedScene" uid="uid://ctbthyiung030" path="res://Scenes.tscn/Carrot.tscn" id="2_i1ba4"]
+[ext_resource type="Texture2D" uid="uid://bg04hvvjhddkq" path="res://Overlays/OVERLAY.png" id="4_8r4ob"]
+[ext_resource type="Texture2D" uid="uid://4lq7588cxvxx" path="res://Overlays/OVERLAY2.png" id="5_p5lmu"]
+[ext_resource type="Texture2D" uid="uid://caljgtl8hmpsh" path="res://heart.png" id="6_bo22y"]
+[ext_resource type="Texture2D" uid="uid://0u4yeu5w48hd" path="res://frame1-sheet.png" id="6_turrk"]
+[ext_resource type="Texture2D" uid="uid://bnpt6qtndk2op" path="res://chausse.png" id="7_g2u6a"]
+[ext_resource type="Texture2D" uid="uid://cr0a4vqf4dvt1" path="res://sablier.png" id="8_r3qt3"]
+[ext_resource type="Texture2D" uid="uid://b5bvkqkg50kt5" path="res://attack.png" id="9_gojsq"]
+[ext_resource type="Script" path="res://Scenes.tscn/SubViewport.gd" id="10_hxob1"]
+[ext_resource type="Texture2D" uid="uid://cdfai3mws5mtc" path="res://button3.png" id="10_qrno3"]
+[ext_resource type="Texture2D" uid="uid://dv68yr02fdb2m" path="res://button.png" id="10_tfcje"]
+[ext_resource type="Texture2D" uid="uid://dv3eyeckrcc1a" path="res://buble.png" id="11_1a70d"]
+[ext_resource type="Texture2D" uid="uid://5wamx8n8dxfi" path="res://poidnt.png" id="11_3r1vi"]
+[ext_resource type="Texture2D" uid="uid://bvvj0f7smdn5o" path="res://button_hov.png" id="11_futdb"]
+[ext_resource type="Texture2D" uid="uid://dr0hqhbpi60te" path="res://button_prs.png" id="11_x800k"]
+[ext_resource type="Script" path="res://Scenes.tscn/escp.gd" id="13_5bdut"]
+[ext_resource type="Environment" uid="uid://dearahrulu1py" path="res://Shaders.tres" id="14_8sm3g"]
+[ext_resource type="Texture2D" uid="uid://btv04rk1mo4us" path="res://button_hov2.png" id="14_ws78q"]
+[ext_resource type="Texture2D" uid="uid://b8b3xsnbefmp2" path="res://button_prs2.png" id="15_85nyw"]
+[ext_resource type="Texture2D" uid="uid://co3vh3t6l52q6" path="res://button-option.png" id="17_fokwg"]
+[ext_resource type="Texture2D" uid="uid://bhx4yoeesrhf0" path="res://button_prs_opt.png" id="18_lojia"]
+[ext_resource type="Texture2D" uid="uid://dbyggutxo7dsf" path="res://button_hov_opt.png" id="19_ieqwx"]
+[ext_resource type="Texture2D" uid="uid://c7jacc7t2a7ue" path="res://button-load.png" id="20_cl0mv"]
+[ext_resource type="Texture2D" uid="uid://c0eamnba81mcx" path="res://load_prs.png" id="24_go77s"]
+[ext_resource type="Texture2D" uid="uid://1dx7kmgehf1s" path="res://load_hov.png" id="25_r48ws"]
+[ext_resource type="Texture2D" uid="uid://dvt7o8p4d2q5o" path="res://cheked.png" id="26_41w5h"]
+[ext_resource type="PackedScene" uid="uid://b5o73ual3mum6" path="res://Scenes.tscn/GUI.tscn" id="26_duskd"]
+[ext_resource type="Texture2D" uid="uid://cxpnk2bg7k6vx" path="res://back.png" id="26_efru4"]
+[ext_resource type="FontFile" uid="uid://2nopynevwt7c" path="res://Press Start /PressStart2P-Regular.ttf" id="27_4scte"]
+[ext_resource type="Texture2D" uid="uid://cp7jlyfl16s28" path="res://back_prs.png" id="27_gqh2q"]
+[ext_resource type="Texture2D" uid="uid://d4fcle8p21c73" path="res://uncheked.png" id="27_hht2d"]
+[ext_resource type="Texture2D" uid="uid://c08h48n87deth" path="res://back_hov.png" id="28_qeo5q"]
+[ext_resource type="Texture2D" uid="uid://c5g7lyf31dhwu" path="res://saver.png" id="29_bvdmi"]
+[ext_resource type="Texture2D" uid="uid://cxuktceg87ykv" path="res://saver_prs.png" id="30_erqcv"]
+[ext_resource type="Texture2D" uid="uid://vq4kbtk0iq6r" path="res://saver_hov.png" id="31_5rd3v"]
+[ext_resource type="PackedScene" uid="uid://do5fkuqi16ls4" path="res://Scenes.tscn/bombe.tscn" id="38_km22b"]
+
+[sub_resource type="Curve2D" id="Curve2D_oglr1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -204, -87, 0, 0, 0, 0, 276, -87, 0, 0, 0, 0, 277, 183, 0, 0, 0, 0, -201, 183, 0, 0, 0, 0, -204, -87)
+}
+point_count = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_j2tho"]
+font = ExtResource("27_4scte")
+font_size = 38
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_478po"]
+atlas = ExtResource("6_turrk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rsong"]
+atlas = ExtResource("6_turrk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn3l6"]
+atlas = ExtResource("6_turrk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1aip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_478po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rsong")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn3l6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qytu8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yt6wd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_34yq0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s3rg1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ojh7h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m4i4o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvtfl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_macfb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmnpn"]
+
+[node name="Map" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_agb8m")
+metadata/_edit_horizontal_guides_ = [118.0]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
+autostart = true
+
+[node name="Eyepoint" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_i1ba4")]
+scale = Vector2(1.5, 1.5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.5, 0.5)
+limit_left = -1280
+limit_top = -760
+limit_right = 1280
+limit_bottom = 760
+
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-46.6057, -61.3518)
+scale = Vector2(1.3271, 1.30247)
+curve = SubResource("Curve2D_oglr1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-204, -87)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+scale = Vector2(0.333333, 0.333333)
+color = Color(1, 0.8, 0.333333, 0.752941)
+energy = 0.6
+range_z_max = 3975
+range_layer_min = -40
+shadow_enabled = true
+texture = ExtResource("2_52ig4")
+texture_scale = 3.69
+
+[node name="Border" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Overlay" type="Sprite2D" parent="Border"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_p5lmu")
+
+[node name="background" type="CanvasLayer" parent="."]
+layer = -10
+follow_viewport_enabled = true
+
+[node name="Overlay2" type="Sprite2D" parent="background"]
+scale = Vector2(2, 2)
+texture = ExtResource("4_8r4ob")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="background"]
+scale = Vector2(2, 2)
+color = Color(0.980392, 0.980392, 0.980392, 1)
+
+[node name="item_choice" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 0
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="item_choice"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.466667)
+
+[node name="Label" type="Label" parent="item_choice/ColorRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -180.0
+offset_bottom = -123.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 41
+text = "Items"
+label_settings = SubResource("LabelSettings_j2tho")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cube" type="AnimatedSprite2D" parent="item_choice/ColorRect"]
+unique_name_in_owner = true
+position = Vector2(319.5, 270.5)
+scale = Vector2(3.78125, 3.78125)
+sprite_frames = SubResource("SpriteFrames_q1aip")
+
+[node name="heart" type="Button" parent="item_choice/ColorRect/cube"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qytu8")
+icon = ExtResource("6_bo22y")
+flat = true
+icon_alignment = 1
+
+[node name="foot" type="Button" parent="item_choice/ColorRect/cube"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_yt6wd")
+icon = ExtResource("7_g2u6a")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="sab" type="Button" parent="item_choice/ColorRect/cube"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_34yq0")
+icon = ExtResource("8_r3qt3")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="attack" type="Button" parent="item_choice/ColorRect/cube"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_34yq0")
+icon = ExtResource("9_gojsq")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="bublles" type="Button" parent="item_choice/ColorRect/cube"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_34yq0")
+icon = ExtResource("11_1a70d")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="cube2" type="AnimatedSprite2D" parent="item_choice/ColorRect"]
+unique_name_in_owner = true
+position = Vector2(641, 270.5)
+scale = Vector2(3.78125, 3.78125)
+sprite_frames = SubResource("SpriteFrames_q1aip")
+
+[node name="heart2" type="Button" parent="item_choice/ColorRect/cube2"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s3rg1")
+icon = ExtResource("6_bo22y")
+flat = true
+icon_alignment = 1
+
+[node name="foot2" type="Button" parent="item_choice/ColorRect/cube2"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ojh7h")
+icon = ExtResource("7_g2u6a")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="sab2" type="Button" parent="item_choice/ColorRect/cube2"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m4i4o")
+icon = ExtResource("8_r3qt3")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="attack2" type="Button" parent="item_choice/ColorRect/cube2"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m4i4o")
+icon = ExtResource("9_gojsq")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="bublles2" type="Button" parent="item_choice/ColorRect/cube2"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m4i4o")
+icon = ExtResource("11_1a70d")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Game_Over" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 0
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Game_Over"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.466667)
+
+[node name="Label" type="Label" parent="Game_Over/ColorRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -116.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 41
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gui" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Gui"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -141.0
+offset_bottom = 141.0
+grow_horizontal = 0
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Gui/SubViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+canvas_item_default_texture_repeat = 1
+size = Vector2i(141, 141)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+script = ExtResource("10_hxob1")
+
+[node name="Camera2D" type="Camera2D" parent="Gui/SubViewportContainer/SubViewport"]
+zoom = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gui/SubViewportContainer/SubViewport"]
+texture = ExtResource("4_8r4ob")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gui/SubViewportContainer/SubViewport"]
+texture = ExtResource("5_p5lmu")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Gui/SubViewportContainer/SubViewport"]
+scale = Vector2(3, 3)
+texture = ExtResource("11_3r1vi")
+
+[node name="GUI" parent="Gui" instance=ExtResource("26_duskd")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+process_priority = 5
+process_physics_priority = 5
+environment = ExtResource("14_8sm3g")
+
+[node name="pause" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+process_mode = 2
+layer = 3
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="pause"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.133333, 0.133333, 0.509804)
+
+[node name="TextureButton" type="TextureButton" parent="pause/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = 128.0
+offset_right = 98.5
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("10_qrno3")
+texture_pressed = ExtResource("11_x800k")
+texture_hover = ExtResource("11_futdb")
+stretch_mode = 0
+
+[node name="rest" type="TextureButton" parent="pause/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -223.0
+offset_right = 98.5
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("10_tfcje")
+texture_pressed = ExtResource("15_85nyw")
+texture_hover = ExtResource("14_ws78q")
+stretch_mode = 0
+
+[node name="Option" type="TextureButton" parent="pause/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = -101.0
+offset_right = 98.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("17_fokwg")
+texture_pressed = ExtResource("18_lojia")
+texture_hover = ExtResource("19_ieqwx")
+stretch_mode = 0
+
+[node name="Load" type="TextureButton" parent="pause/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.5
+offset_top = 12.0
+offset_right = 98.5
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("20_cl0mv")
+texture_pressed = ExtResource("24_go77s")
+texture_hover = ExtResource("25_r48ws")
+stretch_mode = 0
+
+[node name="options" type="CanvasLayer" parent="."]
+process_mode = 2
+layer = 3
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="options"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.133333, 0.133333, 0.666667)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="options/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 38.0
+offset_right = -100.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="options/ColorRect/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 7
+
+[node name="Light" type="CheckButton" parent="options/ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("27_4scte")
+theme_override_icons/checked = ExtResource("26_41w5h")
+theme_override_icons/checked_disabled = ExtResource("26_41w5h")
+theme_override_icons/unchecked = ExtResource("27_hht2d")
+theme_override_icons/checked_mirrored = ExtResource("26_41w5h")
+theme_override_icons/checked_disabled_mirrored = ExtResource("26_41w5h")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dvtfl")
+button_pressed = true
+text = "Lights"
+flat = true
+
+[node name="Gui" type="CheckButton" parent="options/ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("27_4scte")
+theme_override_icons/checked = ExtResource("26_41w5h")
+theme_override_icons/unchecked = ExtResource("27_hht2d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_macfb")
+button_pressed = true
+text = "GUI
+"
+
+[node name="Lifebar" type="CheckButton" parent="options/ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("27_4scte")
+theme_override_icons/checked = ExtResource("26_41w5h")
+theme_override_icons/unchecked = ExtResource("27_hht2d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mmnpn")
+button_pressed = true
+text = "life bar
+"
+
+[node name="save" type="TextureButton" parent="options/ColorRect/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("29_bvdmi")
+texture_pressed = ExtResource("30_erqcv")
+texture_hover = ExtResource("31_5rd3v")
+
+[node name="Label" type="Label" parent="options/ColorRect/ScrollContainer/VBoxContainer/save"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -714.0
+offset_right = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("27_4scte")
+text = "Save game"
+vertical_alignment = 1
+
+[node name="back" type="TextureButton" parent="options/ColorRect/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+texture_normal = ExtResource("26_efru4")
+texture_pressed = ExtResource("27_gqh2q")
+texture_hover = ExtResource("28_qeo5q")
+stretch_mode = 5
+
+[node name="SubCervaux" type="Node2D" parent="."]
+process_mode = 3
+script = ExtResource("13_5bdut")
+
+[node name="Bombe" parent="." instance=ExtResource("38_km22b")]
+position = Vector2(-264.5, -59.5)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="Health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="pressed" from="item_choice/ColorRect/cube/heart" to="." method="_on_heart_pressed"]
+[connection signal="pressed" from="item_choice/ColorRect/cube/foot" to="." method="_on_foot_pressed"]
+[connection signal="pressed" from="item_choice/ColorRect/cube/sab" to="." method="_on_sab_pressed"]
+[connection signal="pressed" from="item_choice/ColorRect/cube/attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="item_choice/ColorRect/cube/bublles" to="." method="_on_bublles_pressed"]
+[connection signal="pressed" from="item_choice/ColorRect/cube2/heart2" to="." method="_on_heart_2_pressed"]
+[connection signal="pressed" from="item_choice/ColorRect/cube2/foot2" to="." method="_on_foot_2_pressed"]
+[connection signal="pressed" from="item_choice/ColorRect/cube2/sab2" to="." method="_on_sab_2_pressed"]
+[connection signal="pressed" from="item_choice/ColorRect/cube2/attack2" to="." method="_on_attack_2_pressed"]
+[connection signal="pressed" from="item_choice/ColorRect/cube2/bublles2" to="." method="_on_bublles_2_pressed"]
+[connection signal="LVL_UP" from="Gui/GUI" to="." method="_on_gui_lvl_up"]
+[connection signal="pressed" from="pause/ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="pause/ColorRect/rest" to="SubCervaux" method="_on_rest_pressed"]
+[connection signal="pressed" from="pause/ColorRect/Option" to="SubCervaux" method="_on_option_pressed"]
+[connection signal="pressed" from="pause/ColorRect/Load" to="." method="_on_load_pressed"]
+[connection signal="toggled" from="options/ColorRect/ScrollContainer/VBoxContainer/Light" to="SubCervaux" method="_on_light_toggled"]
+[connection signal="toggled" from="options/ColorRect/ScrollContainer/VBoxContainer/Gui" to="SubCervaux" method="_on_gui_toggled"]
+[connection signal="toggled" from="options/ColorRect/ScrollContainer/VBoxContainer/Lifebar" to="SubCervaux" method="_on_lifebar_toggled"]
+[connection signal="pressed" from="options/ColorRect/ScrollContainer/VBoxContainer/back" to="SubCervaux" method="_on_back_pressed"]

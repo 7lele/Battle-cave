@@ -1,0 +1,125 @@
+[gd_scene load_steps=15 format=3 uid="uid://dbp1i8ciyuwxd"]
+
+[ext_resource type="Texture2D" uid="uid://dcercn85mnvgg" path="res://boum1-sheet.png" id="1_fvtup"]
+[ext_resource type="Script" path="res://boum.gd" id="1_xmsyk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqmic"]
+atlas = ExtResource("1_fvtup")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r66h5"]
+atlas = ExtResource("1_fvtup")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e2ck"]
+atlas = ExtResource("1_fvtup")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv8r3"]
+atlas = ExtResource("1_fvtup")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0ud7"]
+atlas = ExtResource("1_fvtup")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtvqq"]
+atlas = ExtResource("1_fvtup")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3wdh"]
+atlas = ExtResource("1_fvtup")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q4s7r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqmic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r66h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e2ck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv8r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0ud7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtvqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3wdh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a6i1k"]
+radius = 16.0028
+
+[sub_resource type="Animation" id="Animation_5p5fh"]
+resource_name = "Boum"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("a:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_iwwls"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("a:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ps44e"]
+_data = {
+"Boum": SubResource("Animation_5p5fh"),
+"RESET": SubResource("Animation_iwwls")
+}
+
+[node name="Boum" type="Area2D"]
+scale = Vector2(10, 10)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_xmsyk")
+
+[node name="a" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1.3, 1.3, 1.3, 1)
+position = Vector2(7.45058e-09, -7.45058e-09)
+sprite_frames = SubResource("SpriteFrames_q4s7r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a6i1k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ps44e")
+}
+autoplay = "Boum"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

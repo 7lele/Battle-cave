@@ -1,0 +1,167 @@
+[gd_scene load_steps=19 format=3 uid="uid://d207wl16p7tlq"]
+
+[ext_resource type="Script" path="res://Scenes.tscn/splatch.gd" id="1_mgrbl"]
+[ext_resource type="Texture2D" uid="uid://btlrpnyi3tm5t" path="res://GLUE.png" id="2_40lv4"]
+[ext_resource type="Texture2D" uid="uid://dq7h62gal1pak" path="res://particles.png" id="3_xotlc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi8jn"]
+atlas = ExtResource("2_40lv4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ebew"]
+atlas = ExtResource("2_40lv4")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x0po"]
+atlas = ExtResource("2_40lv4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4p346"]
+atlas = ExtResource("2_40lv4")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_df4ke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi8jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ebew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x0po")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p346")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_cxeow"]
+points = PackedVector2Array(1.4, 29.47, -12.67, 18.29, -27.08, 2.08165e-12, -4.63, -27.04, 24.83, -8.79, 23.46, 11.07)
+
+[sub_resource type="Animation" id="Animation_5p5fh"]
+resource_name = "Boum"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("a:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_iwwls"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("a:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ps44e"]
+_data = {
+"Boum": SubResource("Animation_5p5fh"),
+"RESET": SubResource("Animation_iwwls")
+}
+
+[sub_resource type="Curve" id="Curve_spj0v"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.226562, 6.81114), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_6k2mh"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.466146, 26.36), 0.0, 0.0, 0, 0, Vector2(0.979167, -116.232), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_8651g"]
+max_value = 100.0
+_data = [Vector2(0, 4.84299), 0.0, 0.0, 0, 0, Vector2(0.914062, 60.6148), 165.59, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_dgngs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.809896, 0.73839), 3.4498, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_w8p6e"]
+colors = PackedColorArray(0.784314, 0.866667, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_38fnl"]
+colors = PackedColorArray(4, 2, 2.5, 1, 0.1445, 1, 0.13, 0.733333)
+
+[node name="splatch" type="Area2D"]
+scale = Vector2(5, 5)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_mgrbl")
+
+[node name="a" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+modulate = Color(1.3, 1.3, 1.3, 1)
+position = Vector2(7.45058e-09, -7.45058e-09)
+sprite_frames = SubResource("SpriteFrames_df4ke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("ConvexPolygonShape2D_cxeow")
+debug_color = Color(0.301961, 0.611765, 0.388235, 0.419608)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ps44e")
+}
+autoplay = "Boum"
+
+[node name="time" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 7.0
+autostart = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 1000
+lifetime = 1.4
+fixed_fps = 60
+texture = ExtResource("3_xotlc")
+emission_shape = 1
+emission_sphere_radius = 23.0
+direction = Vector2(2.08165e-12, 2.08165e-12)
+spread = 180.0
+gravity = Vector2(2.08165e-12, -200)
+initial_velocity_min = 12.0
+initial_velocity_max = 20.0
+linear_accel_min = -46.44
+linear_accel_max = 12.0
+linear_accel_curve = SubResource("Curve_spj0v")
+radial_accel_min = 0.6
+radial_accel_max = 6.29
+radial_accel_curve = SubResource("Curve_6k2mh")
+damping_max = 20.0
+damping_curve = SubResource("Curve_8651g")
+scale_amount_min = 0.8
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_dgngs")
+color_ramp = SubResource("Gradient_w8p6e")
+color_initial_ramp = SubResource("Gradient_38fnl")
+hue_variation_min = -0.7
+hue_variation_max = 0.43
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="time" to="." method="_on_time_timeout"]

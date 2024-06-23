@@ -1,0 +1,108 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhqtcqx7m530q"]
+
+[ext_resource type="Script" path="res://play.gd" id="1_kg1us"]
+[ext_resource type="Texture2D" uid="uid://bg04hvvjhddkq" path="res://Overlays/OVERLAY.png" id="2_tnqnv"]
+[ext_resource type="Texture2D" uid="uid://4lq7588cxvxx" path="res://Overlays/OVERLAY2.png" id="3_8f08s"]
+[ext_resource type="Texture2D" uid="uid://blqcfn50h5rjg" path="res://play.png" id="4_83gjd"]
+[ext_resource type="Texture2D" uid="uid://c4wcy6r2qapk4" path="res://play_prs.png" id="5_gfh0m"]
+[ext_resource type="Texture2D" uid="uid://cjpa4duv0htsl" path="res://Play_hov.png" id="6_ymcgj"]
+[ext_resource type="Texture2D" uid="uid://8m3da2bh1qwv" path="res://normal.png" id="7_bvt60"]
+[ext_resource type="Texture2D" uid="uid://2hioxq1edafr" path="res://normal_hov.png" id="8_b6hx6"]
+[ext_resource type="Texture2D" uid="uid://bi6ttjxequj0b" path="res://normal_prs.png" id="9_4uw4q"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kg1us")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_tnqnv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8f08s")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.0588235, 0.0823529, 0.458824)
+
+[node name="PLAY" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="play" type="TextureButton" parent="PLAY"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("4_83gjd")
+texture_pressed = ExtResource("5_gfh0m")
+texture_hover = ExtResource("6_ymcgj")
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="PLAY"]
+layout_mode = 2
+
+[node name="TextureButton3" type="TextureButton" parent="PLAY"]
+layout_mode = 2
+
+[node name="MODE" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="normal" type="TextureButton" parent="MODE"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("7_bvt60")
+texture_pressed = ExtResource("8_b6hx6")
+texture_hover = ExtResource("9_4uw4q")
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="MODE"]
+layout_mode = 2
+
+[node name="TextureButton3" type="TextureButton" parent="MODE"]
+layout_mode = 2
+
+[connection signal="pressed" from="PLAY/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MODE/normal" to="." method="_on_normal_pressed"]
